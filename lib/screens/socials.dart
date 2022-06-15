@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Socials extends StatelessWidget {
-  Socials({Key? key}) : super(key: key);
+class Socials extends StatefulWidget {
+  const Socials({Key? key}) : super(key: key);
+
+  @override
+  State<Socials> createState() => _SocialsState();
+}
+
+class _SocialsState extends State<Socials> {
+  bool isGithubHovered = false;
+  bool isTwitterHovered = false;
 
   final Uri urlTwitter = Uri.parse('https://twitter.com/ghozifidaulh');
   final Uri urlGithub = Uri.parse('https://github.com/ghozifidaul');
@@ -15,6 +23,52 @@ class Socials extends StatelessWidget {
     await launchUrl(urlGithub);
   }
 
+  Widget twitterLink() {
+    return InkWell(
+      onTap: () => launchTwitterUrl(),
+      onHover: (value) {
+        setState(() {
+          isTwitterHovered = value;
+        });
+      },
+      child: Text(
+        MediaQuery.of(context).size.width > 700
+            ? 'twitter.com/ghozifidaul'
+            : '@ghozifidaul',
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.blue,
+          fontWeight: FontWeight.bold,
+          decoration:
+              isTwitterHovered ? TextDecoration.underline : TextDecoration.none,
+        ),
+      ),
+    );
+  }
+
+  Widget githubLink() {
+    return InkWell(
+      onTap: () => launchGitHubUrl(),
+      onHover: (value) {
+        setState(() {
+          isGithubHovered = value;
+        });
+      },
+      child: Text(
+        MediaQuery.of(context).size.width > 700
+            ? 'github.com/ghozifidaul'
+            : 'ghozifidaul',
+        style: TextStyle(
+          fontSize: 18,
+          color: Colors.black,
+          fontWeight: FontWeight.bold,
+          decoration:
+              isGithubHovered ? TextDecoration.underline : TextDecoration.none,
+        ),
+      ),
+    );
+  }
+
   Widget largeScreenSocials() {
     return Row(
       children: [
@@ -24,18 +78,7 @@ class Socials extends StatelessWidget {
           child: Image.asset('assets/images/twitterlogo.png'),
         ),
         const SizedBox(width: 20),
-        GestureDetector(
-          onTap: () => launchTwitterUrl(),
-          child: const Text(
-            'twitter.com/ghozifidaul',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.blue,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-            ),
-          ),
-        ),
+        twitterLink(),
         const SizedBox(width: 20),
         SizedBox(
           width: 50,
@@ -43,18 +86,7 @@ class Socials extends StatelessWidget {
           child: Image.asset('assets/images/githubicon.png'),
         ),
         const SizedBox(width: 20),
-        GestureDetector(
-          onTap: () => launchGitHubUrl(),
-          child: const Text(
-            'github.com/ghozifidaul',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-            ),
-          ),
-        ),
+        githubLink(),
       ],
     );
   }
@@ -70,18 +102,7 @@ class Socials extends StatelessWidget {
               child: Image.asset('assets/images/twitterlogo.png'),
             ),
             const SizedBox(width: 20),
-            GestureDetector(
-              onTap: () => launchTwitterUrl(),
-              child: const Text(
-                '@ghozifidaul',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.blue,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            )
+            twitterLink(),
           ],
         ),
         const SizedBox(height: 10),
@@ -93,18 +114,7 @@ class Socials extends StatelessWidget {
               child: Image.asset('assets/images/githubicon.png'),
             ),
             const SizedBox(width: 20),
-            GestureDetector(
-              onTap: () => launchGitHubUrl(),
-              child: const Text(
-                'ghozifidaul',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
+            githubLink(),
           ],
         )
       ],

@@ -39,7 +39,9 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 const AboutMePage(),
+                SizedBox(height: 50),
                 const MyProjectsPage(),
+                SizedBox(height: 50),
                 Socials(),
               ],
             ),
