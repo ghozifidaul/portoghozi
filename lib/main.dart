@@ -8,31 +8,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // precacheImage(const AssetImage('assets/images/bg.jpg'), context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Ghozi Fidaul',
+      title: 'Ghozi Fidaul Portfolio Website',
       theme: ThemeData(
         fontFamily: 'SourceCodePro',
-        textTheme: const TextTheme(
-          headline1: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 64,
-            color: Colors.black,
-          ),
-          headline2: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 24,
-            color: Colors.black,
-          ),
-          bodyText1: TextStyle(
-            fontSize: 18,
-          ),
-        ),
+        primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const MyHomePage(title: 'Ghozi Portfolio Website Homepage'),
     );
   }
 }
