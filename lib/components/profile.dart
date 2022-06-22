@@ -56,7 +56,7 @@ class Profile extends StatelessWidget {
                   TextAlign.start,
                   18,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 rowSocials(context),
               ],
             ),

@@ -1,8 +1,3 @@
-import 'package:portoghozi/components/btn_menu.dart';
-import 'package:portoghozi/components/header.dart';
-import 'package:portoghozi/pages/aboutme.dart';
-import 'package:portoghozi/pages/projects.dart';
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:portoghozi/terminal_view.dart';
 

@@ -1,6 +1,4 @@
-import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:portoghozi/components/btn_menu.dart';
 import 'package:portoghozi/components/header.dart';
 import 'package:portoghozi/components/profile.dart';
 import 'package:portoghozi/components/row_btn_menu.dart';
@@ -79,7 +77,6 @@ class _TerminalViewState extends State<TerminalView>
   Widget build(BuildContext context) {
     animationController.forward();
     double widthscreen = MediaQuery.of(context).size.width;
-
     return Stack(
       children: [
         const Align(
@@ -96,7 +93,11 @@ class _TerminalViewState extends State<TerminalView>
           child: Container(
             padding: EdgeInsets.symmetric(
               vertical: widthscreen > 700 ? 50.0 : 20.0,
-              horizontal: widthscreen > 700 ? 300 : 20.0,
+              horizontal: widthscreen > 1400
+                  ? 400
+                  : widthscreen > 700
+                      ? 300
+                      : 20.0,
             ),
             child: Column(
               children: [

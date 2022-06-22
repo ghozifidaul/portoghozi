@@ -1,5 +1,6 @@
 import 'package:portoghozi/components/btn_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Projects extends StatefulWidget {
   const Projects({Key? key}) : super(key: key);
@@ -42,7 +43,8 @@ class _ProjectsState extends State<Projects>
       );
 
   Widget btnSeeProject() => BtnMenu(
-        ontap: () {},
+        ontap: () => launchUrl(Uri.parse(
+            'https://github.com/ghozifidaul/employee-attendance-mobile-app')),
         onhover: (val) {
           setState(() {
             isHoverOnProject = val;
@@ -83,7 +85,12 @@ class _ProjectsState extends State<Projects>
               const SizedBox(height: 20),
               descProj(),
               const SizedBox(height: 20),
-              btnSeeProject(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: btnSeeProject(),
+                ),
+              ),
             ],
           ),
         ),
