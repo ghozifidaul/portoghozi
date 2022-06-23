@@ -1,9 +1,18 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:mailto/mailto.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
+
+  mailToGhozi() async {
+    final mailToGhozi = Mailto(to: ['ghozifidaul@gmail.com']).toString();
+    if (await canLaunchUrl(Uri.parse(mailToGhozi))) {
+      // print(mailToGhozi);
+      await launchUrl(Uri.parse(mailToGhozi));
+    }
+  }
 
   Widget profilePict() => DottedBorder(
         color: Colors.white,
@@ -90,6 +99,18 @@ class Profile extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Image.asset('assets/images/githubicon.png'),
+              ),
+            ),
+          ),
+          const SizedBox(width: 10),
+          InkWell(
+            onHover: (val) {},
+            onTap: () => mailToGhozi(),
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset('assets/images/gmaillogo.png'),
               ),
             ),
           ),
