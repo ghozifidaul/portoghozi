@@ -20,7 +20,7 @@ class _ProjectsState extends State<Projects>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 500),
     );
 
     offsetAnimation = Tween<Offset>(
