@@ -57,7 +57,7 @@ class _TerminalViewState extends State<TerminalView>
     );
 
     offsetAnimation = offsetAnimation = Tween<Offset>(
-      begin: const Offset(0.0, 0.2),
+      begin: const Offset(0.0, 0.5),
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: animationController,

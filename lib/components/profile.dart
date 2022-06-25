@@ -114,6 +114,19 @@ class Profile extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 10),
+          InkWell(
+            onHover: (val) {},
+            onTap: () => launchUrl(
+                Uri.parse('https://www.linkedin.com/in/ghozifidaul/')),
+            child: CircleAvatar(
+              backgroundColor: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset('assets/images/linkedinlogo.png'),
+              ),
+            ),
+          ),
         ],
       );
 
